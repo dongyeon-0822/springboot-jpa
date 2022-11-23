@@ -25,5 +25,5 @@ ENTRYPOINT [                                                \
    "-jar",                                                 \
    "-Djava.security.egd=file:/dev/./urandom",              \
    "-Dsun.net.inetaddr.ttl=0",                             \
-   "springboot-mustache-3-0.0.1-SNAPSHOT.jar"              \
+   "springboot-jpa-0.0.1-SNAPSHOT.jar"              \
 ]
