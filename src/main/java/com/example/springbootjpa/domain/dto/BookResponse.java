@@ -15,11 +15,11 @@ public class BookResponse {
     private String bookName;
     private String authorName;
 
-    public static BookResponse of(Book book, String authorName) { //매개변수로 book과 작가명을 받아 Response 생성
+    public static BookResponse of(Book book) { //매개변수로 book과 작가명을 받아 Response 생성
         return BookResponse.builder()
                 .bookId(book.getId())
                 .bookName(book.getName())
-                .authorName(authorName)
+                .authorName(book.getAuthor().getName())
                 .build();
     }
 }

@@ -28,12 +28,7 @@ public class BookService {
     public List<BookResponse> findBooks(Pageable pageable) {
         Page<Book> books = bookRepository.findAll(pageable);
         List<BookResponse> bookResponses = books.stream() //book을 받아서 bookResponse로 바꾸는 과정
-                .map(book -> {
-                    Optional<Author> authorOptional = authorRepository.findById(book.getAuthorId());
-                    return BookResponse.of(book, authorOptional.get().getName());
-                }).collect(Collectors.toList());
+                .map(book -> BookResponse.of(book)).collect(Collectors.toList());
         return bookResponses;
     }
-
-
 }
