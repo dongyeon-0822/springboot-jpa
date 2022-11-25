@@ -35,7 +35,7 @@ public class HospitalController {
         return ResponseEntity.ok().body(hospitalResponse); // Return은 DTO로
     }
 
-    @PostMapping("/{id}/reviews")
+    @PostMapping("/{id}/reviews") //병원에 리뷰 추가하기
     public ResponseEntity<ReviewResponse> getHospitalReviews(@PathVariable Integer id, @RequestBody ReviewRequest reviewCreateRequest) {
         return ResponseEntity.ok().body(reviewService.add(reviewCreateRequest));
     }
