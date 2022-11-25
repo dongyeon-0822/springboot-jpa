@@ -1,5 +1,7 @@
 package com.example.springbootjpa.domain.dto;
 
+import com.example.springbootjpa.domain.entity.Hospital;
+import com.example.springbootjpa.domain.entity.Review;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,4 +17,14 @@ public class ReviewResponse {
     private String content;
     private String userName;
     private String message;
+
+    //entity -> 응답 response
+    public static ReviewResponse of(Review review) {
+        return ReviewResponse.builder()
+                .id(review.getId())
+                .title(review.getTitle())
+                .content(review.getContent())
+                .userName(review.getUserName())
+                .build();
+    }
 }
