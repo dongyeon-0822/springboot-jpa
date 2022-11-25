@@ -48,6 +48,12 @@ public class ReviewService {
                 .map(review -> ReviewResponse.of(review)).collect(Collectors.toList());
         return reviewResponses;
     }
+    public List<ReviewResponse> getHospitalReviews(Integer id){
+        List<Review> reviews = reviewRepository.findAllByHospitalId(id);
+        List<ReviewResponse> reviewResponses = reviews.stream()
+                .map(review -> ReviewResponse.of(review)).collect(Collectors.toList());
+        return reviewResponses;
+    }
     public ReviewResponse getReview(Long id){
         Optional<Review> optionalReview = reviewRepository.findById(id);
         ReviewResponse reviewResponse=ReviewResponse.of(optionalReview.get());

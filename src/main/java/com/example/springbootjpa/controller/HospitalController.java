@@ -36,7 +36,12 @@ public class HospitalController {
     }
 
     @PostMapping("/{id}/reviews") //병원에 리뷰 추가하기
-    public ResponseEntity<ReviewResponse> getHospitalReviews(@PathVariable Integer id, @RequestBody ReviewRequest reviewCreateRequest) {
+    public ResponseEntity<ReviewResponse> addHospitalReviews(@PathVariable Integer id, @RequestBody ReviewRequest reviewCreateRequest) {
         return ResponseEntity.ok().body(reviewService.add(reviewCreateRequest));
+    }
+
+    @GetMapping("/{id}/reviews") //병원 id에 달린 모든 리뷰
+    public ResponseEntity<List<ReviewResponse>> getHospitalReviews(@PathVariable Integer id) {
+        return ResponseEntity.ok().body(reviewService.getHospitalReviews(id));
     }
 }
